@@ -11,14 +11,10 @@ Write-Host "Building components: $componentName"
 # 定义 TypeScript 代码
 $tsContent = @"
 import ${componentName} from './${componentName}.vue';
-
-const install = (app) => {
-  app.component(${componentName}, ${componentName});
-};
-
 export default {
-   install,
-   ${componentName}
+    install: (vue, module) => {
+      vue.component(module.moduleName, ${componentName});
+    }
 };
 "@
 
@@ -37,4 +33,4 @@ $tsContent | Out-File $tsFilePath -Encoding utf8
 $env:npm_config_name = $componentName
 
 # 执行构建命令
-& vue-cli-service build --target lib --name $componentName $tsFilePath
+& vue-cli-service build --target lib --name $componentName "src/components/index.ts"

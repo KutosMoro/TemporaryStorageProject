@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import DefaultItem from './components/DefaultItem.vue'
+import DefaultItem from './components/DefaultItem copy.vue'
 
 export default {
   name: 'App',

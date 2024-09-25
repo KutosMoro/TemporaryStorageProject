@@ -8,8 +8,8 @@
     "build2": "vue-cli-service build --target lib src/components/$npm_config_name.vue"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "core-js": "3.19.1",
+    "vue": "2.7.16"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

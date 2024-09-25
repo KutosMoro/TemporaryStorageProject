@@ -1,3 +1,27 @@
+<script setup>
+import { computed } from 'vue';
+
+const props = defineProps({
+    data: {
+        type: Object,
+        default: () => ({
+            xxxx:1111,
+            yyyyyyyyy:22222,
+            zzzzzz:3333333
+        }),
+    },
+});
+
+
+const handleClickItem = () => {
+    // emit('click', props.data);
+};
+
+const dataMap = computed(() => {
+    return Object.entries(props.data);
+});
+</script>
+
 <template>
     <div class="scroll-wrap">
         <div @click="handleClickItem" class="scroll-item">
@@ -7,37 +31,6 @@
         </div>
     </div>
 </template>
-
-<script lang="tsx">
-import { defineComponent, computed } from 'vue';
-export default defineComponent({
-    name: 'ShapeBaseLine',
-    props: {
-        data: {
-            type: Object,
-            default: () => ({
-                xxxx:1111,
-                yyyyyyyyy:22222,
-                zzzzzz:3333333
-            }),
-        },
-    },
-    setup(props) {
-        const handleClickItem = () => {
-            // emit('click', props.data);
-        };
-
-        const dataMap = computed(() => {
-            return Object.entries(props.data);
-        });
-
-        return {
-            dataMap,
-            handleClickItem
-        };
-    }
-});
-</script>
 
 <style lang="less" scoped>
 .scroll-item {
